@@ -1,0 +1,44 @@
+# Video Niche Selector App
+
+# Define a list of video niches
+video_niches = ["Technology", "Travel", "Food", "Gaming", "Fitness", "Music"]
+
+# Function to display available niches
+def display_niches():
+    print("Available Video Niches:")
+    for index, niche in enumerate(video_niches, start=1):
+        print(f"{index}. {niche}")
+    print()
+
+# Function to get user interests
+def get_user_interests():
+    interests = input("Enter your interests (comma-separated): ").split(',')
+    return [interest.strip().capitalize() for interest in interests]
+
+# Function to find matching niches
+def find_matching_niches(user_interests):
+    matching_niches = [niche for niche in video_niches if niche in user_interests]
+    return matching_niches
+
+# Main function
+def main():
+    print("Welcome to the Video Niche Selector App!\n")
+    
+    display_niches()
+
+    # Get user interests
+    user_interests = get_user_interests()
+
+    # Find matching niches
+    matching_niches = find_matching_niches(user_interests)
+
+    # Display results
+    if matching_niches:
+        print("\nRecommended Video Niches based on your interests:")
+        for niche in matching_niches:
+            print(f"- {niche}")
+    else:
+        print("\nSorry, no matching niches found based on your interests.")
+
+if __name__ == "__main__":
+    main()
